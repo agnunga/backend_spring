@@ -20,14 +20,6 @@ public class JobApplicantMapper extends JobBaseModel {
     @Column(name = "participate")
     private boolean participateInInterview;
 
-    /*public void addApplicant(JobApplicant jobApplicant){
-        this.jobApplicant.add(jobApplicant);
-    }
-
-    public void addJob(Job job){
-        this.jobs.add(job);
-    }*/
-
     public Job getJob() {
         return job;
     }
