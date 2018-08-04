@@ -68,7 +68,7 @@ public class JobApplicantController {
     }
 
     /*e) List jobs interviews an applicant has enrolled for. */
-    @RequestMapping(value = "/apply/{applicant_id}/", method = RequestMethod.GET)
+    @RequestMapping(value = "/jobs/{applicant_id}/", method = RequestMethod.GET)
     public List<Job> listJobInterviews(@PathVariable UUID applicant_id){
         return mapperService.findJobsByApplicants(applicant_id);
     }

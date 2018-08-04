@@ -22,29 +22,9 @@ public class SearchController {
         this.service = service;
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public Job create(@RequestBody Job job){
-        return service.create(job);
-    }
-
-    @RequestMapping(value = "/find/{id}", method = RequestMethod.GET)
-    public Job read(@PathVariable UUID id){
-        return service.findById(id);
-    }
-
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public Job update(@RequestBody Job job) {
-        return service.create(job);
-    }
-
-    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
-    public void delete(@RequestBody Job job) throws Exception {
-        service.delete(job);
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    public List<Job> read(){
-        return service.findAll();
+    @RequestMapping(value = "/{search_by}/{search_phrase}", method = RequestMethod.GET)
+    public List<Job> read(@PathVariable String search_by, @PathVariable String search_phrase){
+        return service.seachJobs (search_by, search_phrase);
     }
 
 }

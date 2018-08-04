@@ -5,6 +5,7 @@ import com.agunga.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -41,4 +42,22 @@ public class JobService {
         return (List<Job>) repository.findAll();
     }
 
+    public List<Job> seachJobs(String search_by, String search_phrase) {
+        List<Job> jobs = new ArrayList<>();
+        switch (search_by){
+
+            case "name" :
+                jobs.addAll(repository.findJobsByNameContaining(search_phrase));
+                break;
+
+            case "description":
+                jobs.addAll(repository.findJobsByNameContaining(search_phrase));
+                break;
+
+            default:
+
+                break;
+        }
+        return jobs;
+    }
 }
